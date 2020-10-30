@@ -11,8 +11,8 @@ from gym.utils import seeding
 class SINGEnv(gym.Env):
 
     def __init__(self):
-        self.p_bounds = np.array([4,7]) # min and max graph dimension
-        self.n_bounds = np.array([550,5000]) # min and max samples
+        self.p_bounds = np.array([4,8]) # min and max graph dimension
+        self.n_bounds = np.array([500,5000]) # min and max samples
         self.iter = 0
         self.iter_max = 100
 
@@ -66,14 +66,14 @@ class SINGEnv(gym.Env):
                         else:
                             case2 = case2 + 1
 
-            reward = 85*(math.exp(-2*case1/3)*math.exp(-case2/3) -order/85)
+            reward = 80*(math.exp(-2*case1/3)*math.exp(-case2/3) -order/85)
             
 
         self.iter += 1
         if self.iter > self.iter_max:
             done = True
 
-        return graph_result, reward, done, {}
+        return graph_result, reward, done, generalized_precision
 
     def reset(self):
         # Dimensionality
