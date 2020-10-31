@@ -6,5 +6,5 @@ register(
     id='SINGRL-v0',
     entry_point='singRL.envs:SINGEnv',
     max_episode_steps=200,
-    reward_threshold=100.0,
+    reward_threshold=90.0,
 )
